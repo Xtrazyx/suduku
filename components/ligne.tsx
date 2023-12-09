@@ -1,18 +1,21 @@
 import { Case, CaseProps } from "./case";
+import styles from "../app/page.module.css";
 
 export type LigneProps = {
-    yLine: number
-
-}
+  cases: CaseProps[];
+};
 
 export function Ligne(props: LigneProps) {
-    const { } = props;
-
-    const cases: CaseProps[] = [{ coordX: 5, coordY: 5, value: 4 }, ]
-
-    return (
-        <div>
-            {cases.map((element: CaseProps) => <Case {...element} />)}
-        </div>
-    )
+  return (
+    <div className={styles.ligne}>
+      {props.cases.map((element: CaseProps) => (
+        <Case
+          key={`${element.coordX}_${element.coordY}`}
+          coordX={element.coordX}
+          coordY={element.coordY}
+          value={element.value}
+        />
+      ))}
+    </div>
+  );
 }
