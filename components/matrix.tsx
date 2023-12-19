@@ -12,7 +12,7 @@ export function Matrix(props: MatrixProps) {
  
   return (
     <div className={styles.matrix}>
-      {data.map((ligne: LigneType, ligneIndex) => (
+      {data.map((ligne: LigneType, ligneIndex: any) => (
         <Ligne key={`${index}_${ligneIndex}`} cases={ligne} />
       ))}
     </div>
